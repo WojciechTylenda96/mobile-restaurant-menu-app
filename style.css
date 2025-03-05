@@ -1,0 +1,10 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.mobile-container {
+    width: 600px;
+    height: 1161px;
+    border: 1px solid black;
+}
