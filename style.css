@@ -1,10 +1,28 @@
 body {
     display: flex;
     justify-content: center;
+    color: whitesmoke;
+}
+
+header {
+    height: 170px;
+    background-image: url('https://t3.ftcdn.net/jpg/02/55/53/44/360_F_255534476_n8JzjZtzOFW5g3TXTLMd6QGVnToi6hqj.jpg');
+    background-size: cover;
+}
+
+h1, h2{
+    margin: 0;
+    text-shadow: 0 0 5px black;
 }
 
 .mobile-container {
     width: 600px;
-    height: 1161px;
     border: 1px solid black;
+}
+
+.name-motto {
+    display: flex;
+    flex-direction: column;
+    padding-left: 20px;
+    padding-top: 10px;
 }
