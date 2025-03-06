@@ -20,7 +20,7 @@ h1, h2{
 }
 
 h1, h2, h3, h4, p {
-    margin: ;
+    margin: 0;
 }
 
 /* layout */
@@ -50,6 +50,12 @@ h1, h2, h3, h4, p {
     border-radius: 50%;
     border: 3px solid black;
     margin: auto 0;
+}
+
+.menu-item-desc {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 /* buttons */
