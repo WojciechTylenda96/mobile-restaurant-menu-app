@@ -1,5 +1,5 @@
 
-const menuArray = [
+export const menuArray = [
     {
         name: 'Spaghetti bolognese',
         ingredients: ['pasta', 'meat', 'tomatoes', 'basil', 'oregano', 'parmegiano'],
