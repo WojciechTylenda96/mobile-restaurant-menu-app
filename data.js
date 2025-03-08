@@ -21,4 +21,11 @@ export const menuArray = [
         price: 14,
         img: 'images/tagliatelle.jpg'
     },
+    {
+        name: 'Pizza Margherita',
+        ingredients: ['tomatoe sauce', 'mozzarella', 'basil'],
+        id: 3,
+        price: 12,
+        img: 'images/margerita.jpg'
+    },
 ]
