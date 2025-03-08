@@ -2,10 +2,25 @@
 import { menuArray } from "./data.js";
 
 const menuEl = document.getElementById('menu');
+const orderInfoEl = document.getElementById('order-info')
 
-function render(){
-    // let menuHtml = ''
+const orderItemsArr = []
 
+document.addEventListener('click', function(e){
+    if(e.target.dataset.id){
+        addItem(e.target.dataset.id)
+    }
+})
+
+function addItem(id){
+    const targetAddItemObj = menuArray.filter(function(item){
+        return item.id === id
+    })
+    console.log(targetAddItemObj)
+}
+
+
+function renderItems(){
     const menuHtml = menuArray.map(function(dish) {
         const ingredients = dish.ingredients.join(', ')
         return `
@@ -18,7 +33,7 @@ function render(){
                 <h4>$${dish.price}</h4>
             </div>
         </div>    
-            <button class="add-btn">+</button>
+            <button class="add-btn" data-id="${dish.id}">+</button>
         </div> 
         `
     })
@@ -27,17 +42,4 @@ function render(){
 
 }
 
-render()
-
-
-{/* 
-    <div class="menu-item">
-        <img src="IMAGE" alt="pasta" class="menu-item-img">
-        <div class="menu-item-desc">
-            <h3>DISH's NAME</h3>
-            <p>INGREDIENTS</p>
-            <h4>PRICE</h4>
-        </div>
-            <button class="add-btn">+</button>
-        </div> 
-*/}
+renderItems()
