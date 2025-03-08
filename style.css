@@ -43,7 +43,7 @@ h1, h2, h3, h4, p {
 .menu-item {
     display: flex;
     justify-content: space-between;
-    padding: 20px 20px;
+    padding: 20px;
     margin: 0 30px;
     border-bottom:1px solid grey;
 }
@@ -67,6 +67,34 @@ h1, h2, h3, h4, p {
     justify-content: space-evenly;
 }
 
+.order-info {
+    padding: 20px;
+    margin: 0 30px;
+    text-align: center;
+}
+
+.order-info-title {
+    padding: 20px 0 40px;
+}
+
+.order-flex {
+    display: flex;
+    justify-content: space-between;
+}
+
+.order-cart-item-name {
+    display: flex;
+}
+
+.divide-bar{
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
 /* buttons */
 
 .add-btn {
@@ -75,4 +103,29 @@ h1, h2, h3, h4, p {
     height: 35px;
     border: 1px solid grey;
     margin: auto 0;
+}
+
+.add-btn:hover{
+    background-color: rgb(5, 146, 12);
+}
+
+.remove-btn {
+    background-color: transparent;
+    border: none;
+    color: grey;
+    font-size: 10px;
+}
+
+.remove-btn:hover {
+    color: rgb(255, 0, 0);
+}
+
+.complete-btn {
+    width: 100%;
+    padding: 15px 0;
+    margin: 20px 0 0;
+    font-weight: 900;
+    color: whitesmoke;
+    border: none;
+    background-color: rgb(10, 207, 115);
 }
