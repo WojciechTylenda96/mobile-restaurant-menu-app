@@ -2,6 +2,7 @@
 import { menuArray } from "./data.js";
 
 const menuEl = document.getElementById('menu');
+const orderInfoSectionEl = document.getElementById('order-info-section')
 const orderInfoEl = document.getElementById('order-info')
 
 const orderItemsArr = []
@@ -12,11 +13,33 @@ document.addEventListener('click', function(e){
     }
 })
 
-function addItem(id){
+function addItem(itemId){
     const targetAddItemObj = menuArray.filter(function(item){
-        return item.id === id
+        return item.id == itemId
+    })[0]
+    orderItemsArr.push(targetAddItemObj)
+    console.log(orderItemsArr)
+    renderOrder()
+}
+
+function renderOrder(){
+    const orderHtml = orderItemsArr.map(function(dish){
+        return `
+        <div class="order-flex">
+            <div class="order-cart-item-name">
+                <h3>${dish.name}</h3>
+                <button class="remove-btn">remove</button>
+            </div>
+            <h3>$${dish.price}</h3>
+        </div>`
     })
-    console.log(targetAddItemObj)
+
+    orderInfoEl.innerHTML = orderHtml
+    
+    if(orderItemsArr.length > 0) {
+        orderInfoSectionEl.style.visibility = 'visible'
+    } 
+    else { orderInfoSectionEl.style.visibility = 'hidden'}
 }
 
 
