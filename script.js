@@ -1,5 +1,6 @@
 
 import { menuArray } from "./data.js";
+import { v4 as uuidv4 } from "https://jspm.dev/uuid"
 
 const menuEl = document.getElementById('menu');
 const orderInfoSectionEl = document.getElementById('order-info-section')
@@ -8,30 +9,44 @@ const orderInfoEl = document.getElementById('order-info')
 const orderItemsArr = []
 
 document.addEventListener('click', function(e){
-    if(e.target.dataset.id){
-        addItem(e.target.dataset.id)
+    if(e.target.dataset.add){
+        addItem(e.target.dataset.add)
+    }
+    else if(e.target.dataset.remove){
+        removeItem(e.target.dataset.remove)
     }
 })
 
 function addItem(itemId){
-    const targetAddItemObj = menuArray.filter(function(item){
-        return item.id == itemId
-    })[0]
+    const targetAddItemObj = menuArray.filter(item => item.id == itemId)[0]
+    targetAddItemObj.uuid = uuidv4()
     orderItemsArr.push(targetAddItemObj)
     renderOrder()
 }
 
+function removeItem(itemUuid){
+    const index = orderItemsArr.findIndex(dish => dish.uuid === itemUuid)
+
+    if(index !== -1){
+        orderItemsArr.splice(index, 1)
+        console.log('dish deleted from order')
+    }
+    else { console.log('dish not found') }
+
+    renderOrder()
+}
+
 function renderOrder(){
-    const orderHtml = orderItemsArr.map(function(dish){
+    const orderHtml = orderItemsArr.map(dish => {
         return `
         <div class="order-flex">
             <div class="order-cart-item-name">
                 <h3>${dish.name}</h3>
-                <button class="remove-btn">remove</button>
+                <button class="remove-btn" data-remove='${dish.uuid}'>remove</button>
             </div>
             <h3>$${dish.price}</h3>
         </div>`
-    })
+    }).join('')
 
     orderInfoEl.innerHTML = orderHtml
 
@@ -62,7 +77,7 @@ function renderItems(){
                 <h4>$${dish.price}</h4>
             </div>
         </div>    
-            <button class="add-btn" data-id="${dish.id}">+</button>
+            <button class="add-btn" data-add="${dish.id}">+</button>
         </div> 
         `
     })
