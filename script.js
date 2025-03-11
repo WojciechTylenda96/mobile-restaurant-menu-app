@@ -18,7 +18,6 @@ function addItem(itemId){
         return item.id == itemId
     })[0]
     orderItemsArr.push(targetAddItemObj)
-    console.log(orderItemsArr)
     renderOrder()
 }
 
@@ -35,6 +34,13 @@ function renderOrder(){
     })
 
     orderInfoEl.innerHTML = orderHtml
+
+    let totalPrice = 0
+    for(let dish of orderItemsArr){
+        totalPrice += dish.price
+    }
+
+    document.getElementById('total-price').innerText = '$' + totalPrice
     
     if(orderItemsArr.length > 0) {
         orderInfoSectionEl.style.visibility = 'visible'
