@@ -32,11 +32,18 @@
                     <h3>Total price:</h3>
                     <h3 id="total-price">$PRICE</h3>
                 </div>
-                <button class="complete-btn">Complete order</button>
+                <button class="submit-btn">Complete order</button>
             </section>
-            
-
         </main>
+    </div>
+    <div id="payment-pop-up" class="pop-up">
+        <form action="submit" class="payment-form">
+            <h3>Enter card details</h3>
+            <input type="text" placeholder="Enter your name" class="input-form" required>
+            <input type="number" placeholder="Enter card number" class="input-form" required>
+            <input type="number" placeholder="Enter CVV" class="input-form" required>
+            <button type="submit" class="submit-btn">Pay</button>
+        </form>
     </div>
     <script type="module" src="script.js"></script>
 </body>
