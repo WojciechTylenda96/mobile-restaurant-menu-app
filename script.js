@@ -5,8 +5,16 @@ import { v4 as uuidv4 } from "https://jspm.dev/uuid"
 const menuEl = document.getElementById('menu');
 const orderInfoSectionEl = document.getElementById('order-info-section')
 const orderInfoEl = document.getElementById('order-info')
+const completeOrderBtn = document.getElementById('complete-order-btn')
+const paymentPopUp = document.getElementById('payment-pop-up')
+const closePopUpBtn = document.getElementById('pop-up-close-btn')
+const submitBtnEl = document.getElementById('submit-btn')
+const inputsForm = document.querySelectorAll('input')
+const orderMessageEl = document.getElementById('order-message')
+const inputNameEl = document.getElementById('input-name')
 
-const orderItemsArr = []
+
+let orderItemsArr = []
 
 document.addEventListener('click', function(e){
     if(e.target.dataset.add){
@@ -17,10 +25,32 @@ document.addEventListener('click', function(e){
     }
 })
 
+completeOrderBtn.addEventListener('click', () => {
+    paymentPopUp.style.visibility = 'visible'
+})
+
+closePopUpBtn.addEventListener('click', () => {
+    paymentPopUp.style.visibility = "hidden"
+})
+
+submitBtnEl.addEventListener('click', () => {
+        orderItemsArr = []
+        renderOrder()
+        orderInfoSectionEl.classList.add('hidden')
+        paymentPopUp.style.visibility = "hidden"
+        const message = `
+            <div class="order-message">
+            Thanks ${inputNameEl.value}! Your order is on its way!
+            </div>`
+        orderMessageEl.innerHTML = message
+        console.log(inputsForm.value)
+})
+
 function addItem(itemId){
     const targetAddItemObj = menuArray.filter(item => item.id == itemId)[0]
     targetAddItemObj.uuid = uuidv4()
     orderItemsArr.push(targetAddItemObj)
+    console.log('dish added')
     renderOrder()
 }
 
@@ -35,6 +65,8 @@ function removeItem(itemUuid){
     
     renderOrder()
 }
+
+
 
 function renderOrder(){
     const orderHtml = orderItemsArr.map(dish => {
@@ -58,9 +90,9 @@ function renderOrder(){
     document.getElementById('total-price').innerText = '$' + totalPrice
     
     if(orderItemsArr.length > 0) {
-        orderInfoSectionEl.style.visibility = 'visible'
+        orderInfoSectionEl.classList.remove('hidden')
     } 
-    else { orderInfoSectionEl.style.visibility = 'hidden'}
+    else { orderInfoSectionEl.classList.add('hidden') }
 }
 
 
