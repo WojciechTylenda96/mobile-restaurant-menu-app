@@ -32,7 +32,7 @@ function removeItem(itemUuid){
         console.log('dish deleted from order')
     }
     else { console.log('dish not found') }
-
+    
     renderOrder()
 }
 
