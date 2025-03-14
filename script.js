@@ -104,7 +104,7 @@ function renderOrder(){
 
 
 function renderItems(){
-    const menuHtml = menuArray.map(function(dish) {
+    const menuHtml = menuArray.map(dish => {
         const ingredients = dish.ingredients.join(', ')
         return `
         <div class="menu-item">
