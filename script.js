@@ -34,16 +34,30 @@ closePopUpBtn.addEventListener('click', () => {
 })
 
 submitBtnEl.addEventListener('click', () => {
-        orderItemsArr = []
-        renderOrder()
-        orderInfoSectionEl.classList.add('hidden')
-        paymentPopUp.style.visibility = "hidden"
-        const message = `
-            <div class="order-message">
-            Thanks ${inputNameEl.value}! Your order is on its way!
-            </div>`
-        orderMessageEl.innerHTML = message
+        const nameInput = document.getElementById('input-name')
+        const inputCardNr = document.getElementById('input-card-nr')
+        const inputCvv = document.getElementById('input-cvv')
+
+        if( nameInput.value.trim() &&
+            inputCardNr.value.length === 16 &&
+            inputCvv.value.length === 3) {
+                orderItemsArr = []
+                renderOrder()
+                orderInfoSectionEl.classList.add('hidden')
+                paymentPopUp.style.visibility = "hidden"
+                const message = `
+                    <div class="order-message">
+                    Thanks ${inputNameEl.value}! Your order is on its way!
+                    </div>`
+                orderMessageEl.innerHTML = message
+            } else {
+                alert('Please fill out all fields correctly.')
+            }
+        
         console.log(inputsForm.value)
+
+        // dodać warunki, aby przycisk działaj tylko, gdy FORM jest wypełniony 
+
 })
 
 function addItem(itemId){

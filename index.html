@@ -40,32 +40,31 @@
         </main>
     </div>
     <div id="payment-pop-up" class="pop-up">
-        <form type="button" class="payment-form">
-            <button class="pop-up-close-btn" id="pop-up-close-btn">x</button>
+        <form action="submit" class="payment-form">
+            <button type="button" class="pop-up-close-btn" id="pop-up-close-btn">x</button>
             <h3>Enter card details</h3>
             <input
                 id="input-name" 
                 type="text" 
                 placeholder="Enter your name" 
                 class="input-form" 
-                value=""
                 required>
             <input 
+                id="input-card-nr"
                 type="number" 
                 placeholder="Enter card number" 
                 class="input-form" 
                 minlength="16"
                 maxlength="16"
                 size="16"
-                value=""
                 required>
             <input 
+                id="input-cvv"
                 type="number" 
                 placeholder="Enter CVV" 
                 class="input-form" 
                 minlength="3" 
                 maxlength="3" 
-                value=""
                 required>
             <button type="button" class="submit-btn" id="submit-btn">Pay</button>
         </form>

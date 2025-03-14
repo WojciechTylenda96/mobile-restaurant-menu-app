@@ -1,7 +1,7 @@
 body {
     display: flex;
     justify-content: center;
-    color: #0c0c0c;
+    color: #1F2937;
     font-family: "Dosis", sans-serif;
 }
 
@@ -146,8 +146,9 @@ input::-webkit-inner-spin-button {
 .order-message{
     text-align: center;
     padding: 20px 20px;
-    color: rgb(1, 105, 1);
-    background-color: rgb(137, 241, 137);
+    font-weight: 700;
+    color: #065F46;
+    background-color: #D1FAE5;
     margin-top: 20px;
     margin-bottom: 20px;
 }
@@ -158,22 +159,22 @@ input::-webkit-inner-spin-button {
     border-radius: 50%;
     width: 35px;
     height: 35px;
-    border: 1px solid grey;
+    border: 1px solid #9CA3AF;
     margin: auto 0;
 }
 
 .add-btn:hover{
-    background-color: rgb(5, 146, 12);
+    background-color: #065F46;
 }
 
 .remove-btn {
     background-color: transparent;
-    color: grey;
+    color: #9CA3AF;
     font-size: 10px;
 }
 
 .remove-btn:hover {
-    color: rgb(255, 0, 0);
+    color: #BE123C;
 }
 
 .submit-btn {
@@ -183,11 +184,11 @@ input::-webkit-inner-spin-button {
     border-radius: 5px;
     font-weight: 900;
     color: whitesmoke;
-    background-color: rgb(10, 207, 115);
+    background-color: #10B981;
 }
 
 .submit-btn:hover {
-    background-color: rgb(5, 146, 12);
+    background-color: #065F46;
 }
 
 .submit-btn, .remove-btn {
@@ -206,5 +207,5 @@ input::-webkit-inner-spin-button {
 }
 
 .pop-up-close-btn:hover {
-    background-color: rgb(255, 32, 32);
+    background-color: #BE123C;
 }
