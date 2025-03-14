@@ -36,7 +36,7 @@ submitBtnEl.addEventListener('click', () => {
         const inputCardNr = document.getElementById('input-card-nr')
         const inputCvv = document.getElementById('input-cvv')
 
-        if( nameInput.value.trim() &&
+        if (nameInput.value.trim() &&
             inputCardNr.value.length === 16 &&
             inputCvv.value.length === 3) {
                 orderItemsArr = []
