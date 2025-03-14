@@ -9,9 +9,7 @@ const completeOrderBtn = document.getElementById('complete-order-btn')
 const paymentPopUp = document.getElementById('payment-pop-up')
 const closePopUpBtn = document.getElementById('pop-up-close-btn')
 const submitBtnEl = document.getElementById('submit-btn')
-const inputsForm = document.querySelectorAll('input')
 const orderMessageEl = document.getElementById('order-message')
-const inputNameEl = document.getElementById('input-name')
 
 
 let orderItemsArr = []
@@ -47,17 +45,12 @@ submitBtnEl.addEventListener('click', () => {
                 paymentPopUp.style.visibility = "hidden"
                 const message = `
                     <div class="order-message">
-                    Thanks ${inputNameEl.value}! Your order is on its way!
+                    Thanks ${nameInput.value}! Your order is on its way!
                     </div>`
                 orderMessageEl.innerHTML = message
             } else {
                 alert('Please fill out all fields correctly.')
             }
-        
-        console.log(inputsForm.value)
-
-        // dodać warunki, aby przycisk działaj tylko, gdy FORM jest wypełniony 
-
 })
 
 function addItem(itemId){
