@@ -11,7 +11,6 @@ const closePopUpBtn = document.getElementById('pop-up-close-btn')
 const submitBtnEl = document.getElementById('submit-btn')
 const orderMessageEl = document.getElementById('order-message')
 
-
 let orderItemsArr = []
 
 document.addEventListener('click', function(e){
